@@ -1,6 +1,6 @@
 - **Java相关**
-  - [数据结构](zh-cn/java/design-mode/)
-  - [设计模式](zh-cn/java/design-mode/)
+  - 数据结构
+  - 设计模式
     - [单例模式](zh-cn/java/design-mode/single-mode.md)
 - **Linux相关**
-  - [常用指令](data-structure/)
+  - 常用指令

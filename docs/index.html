@@ -21,6 +21,7 @@
       coverpage: true,
       subMaxLevel: 2,
       name: 'Snail',
+      ga: 'UA-106147152-1',
       repo: 'https://github.com/ainilili/snail',
       search: {
         noData: {
@@ -39,7 +40,7 @@
         function(hook, vm) {
           hook.beforeEach(function (html) {
             var url = 'https://github.com/ainilili/snail/blob/master/docs/' + vm.route.file
-            var editHtml = '[📝 EDIT DOCUMENT](' + url + ')\n'
+            var editHtml = '[:memo: EDIT DOCUMENT](' + url + ')\n'
 
             return editHtml
               + html
