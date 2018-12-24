@@ -1,6 +1,6 @@
 ![logo](_media/icon.png)
 
-# Nico With Snail
+# Snail Adventure
 
 > Learning is like a snail. It must be slow and purposeful :rocket:
 
