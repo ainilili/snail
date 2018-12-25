@@ -1,6 +1,7 @@
 - **Java相关**
   - 数据结构
-    - [HashMap(1.8)](zh-cn/java/data-structure/hashmap-1.8.md)
+    - [HashMap](zh-cn/java/data-structure/hashmap.md)
+    - [Hash](zh-cn/java/data-structure/hash.md)
   - 设计模式
     - [单例模式](zh-cn/java/design-mode/single-mode.md)
 - **Linux相关**
