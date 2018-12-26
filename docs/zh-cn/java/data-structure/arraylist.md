@@ -119,3 +119,13 @@ public void add(int index, E e) {
 注意``A``这一步，parent不就是我们构造方法中传进来的``ArrayList``对象吗！！这里竟然操作的是原来的ArrayList对象，而并非快照！
 
 由此看来，subList方法获取的SubList对象的操作是基于原ArrayList对象内部的``elementData``数组的，如果只读的情况下，这个方法人畜无害，如果想要对其操作，就要慎重使用，因为它会影响原来的ArrayList对象内部元素！
+
+## 总结
+ArrayList的实现是通过数组加游标配合完成，原理很简单，``subList``方法要慎用，必要时我们可以使用另一种方式避免对原ArrayList的读写：
+```java
+ArrayList<Integer> list = new ArrayList();
+list.add(1);
+list.add(2);
+ArrayList<Integer> subList = new ArrayList();
+subList.addAll(list.subList(1,2));
+```
