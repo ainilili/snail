@@ -1,0 +1,25 @@
+## 常用指令
+ - ``cd /dir`` 进入dir目录、
+ - ``cd ..`` 返回上一级
+ - ``rm demo`` 删除demo文件
+ - ``rm -r /dir`` 删除dir目录下所有文件
+ - ``mkdir dir`` 创建dir目录
+ - ``touch demo`` 创建demo文件
+ - ``vim demo`` 编辑demo文件
+ - ``cat demo`` 打印demo内容
+ - ``tail -f catalina.out`` 持续打印catalina.out文件尾行
+ - ``tail -n 100 catalina.out`` 打印catalina.out文件后100行
+ - ``yum list`` 查看yum安装包列表
+ - ``yum install nginx`` 安装nginx
+ - ``yum remove nginx`` 移除nginx
+ - ``yum uninstall nginx`` 卸载nginx
+ - ``service nginx start`` 启动nginx服务
+ - ``service nginx restart`` 重启nginx服务
+ - ``service nginx stop`` 停止nginx服务
+ - ``tar -zxf xxx.tar.gz`` 解压tar.gz文件
+ - ``htop`` 查看当前cpu、内存等信息
+ - ``iftop`` 查看当前网络情况
+ - ``lsof -i tcp:80`` 查看80端口占用情况
+ - ``netstat -ntlp`` 列出所有端口
+ - ``netstat -lnp|grep 88`` 检查端口被哪个进程占用
+ - ``kill -9 1777`` 杀掉编号为1777的进程
