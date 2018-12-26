@@ -19,3 +19,9 @@
     - [常用指令合集](zh-cn/linux/introduction/instruction-set.md)
   - 环境部署
     - [Jenkins安装及部署](zh-cn/linux/deployment-environment/jenkins.md)
+- **开源项目**
+  - 开源阅读
+    - [arthas源码简析](zh-cn/opensource/opensource-read/arthas.md)
+  - 开源编写
+    - [mybatis-ourbatis](zh-cn/opensource/opensource-write/ourbatis.md)
+    - [spring-boot权限管理框架defender](zh-cn/opensource/opensource-write/defender.md)
