@@ -1,29 +1,29 @@
 - **Java相关**
-  - 基础入门
+  - **基础入门**
     - [进程和线程的区别](zh-cn/java/introduction/processes-and-threads.md)
-  - 数据结构
+  - **数据结构**
     - [HashMap](zh-cn/java/data-structure/hashmap.md)
     - [Hash](zh-cn/java/data-structure/hash.md)
     - [ArrayList](zh-cn/java/data-structure/arraylist.md)
-  - 设计模式
+  - **设计模式**
     - [单例模式](zh-cn/java/design-mode/single-mode.md)
 - **Mysql相关**
-  - 优化
+  - **优化**
     - [语法优化]()
     - [索引优化]()
-  - 锁
+  - **锁**
     - [深入Mysql锁机制]()
     - [死锁分析]()
 - **Linux相关**
-  - introduction
+  - **基础入门**
     - [常用指令合集](zh-cn/linux/introduction/instruction-set.md)
-  - 环境部署
+  - **环境部署**
     - [Java环境配置](zh-cn/linux/deployment-environment/java.md)
     - [Jenkins安装及部署](zh-cn/linux/deployment-environment/jenkins.md)
     - [Arthas安装](zh-cn/linux/deployment-environment/arthas.md)
 - **开源项目**
-  - 开源阅读
+  - **开源阅读**
     - [arthas源码简析](zh-cn/opensource/opensource-read/arthas.md)
-  - 开源编写
+  - **开源编写**
     - [mybatis-ourbatis](zh-cn/opensource/opensource-write/ourbatis.md)
     - [spring-boot权限管理框架defender](zh-cn/opensource/opensource-write/defender.md)
