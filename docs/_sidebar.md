@@ -1,6 +1,6 @@
 - **Java相关**
   - 基础入门
-    - [进程和线程]()
+    - [进程和线程的区别](zh-cn/java/introduction/processes-and-threads.md)
   - 数据结构
     - [HashMap](zh-cn/java/data-structure/hashmap.md)
     - [Hash](zh-cn/java/data-structure/hash.md)
