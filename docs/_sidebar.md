@@ -1,4 +1,6 @@
 - **Java相关**
+  - 基础入门
+    - [进程和线程]()
   - 数据结构
     - [HashMap](zh-cn/java/data-structure/hashmap.md)
     - [Hash](zh-cn/java/data-structure/hash.md)
@@ -13,5 +15,7 @@
     - [深入Mysql锁机制]()
     - [死锁分析]()
 - **Linux相关**
-  - 入门
+  - introduction
     - [常用指令合集](zh-cn/linux/introduction/instruction-set.md)
+  - 环境部署
+    - [Jenkins安装及部署](zh-cn/linux/deployment-environment/jenkins.md)
