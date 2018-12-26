@@ -9,11 +9,7 @@
     - [单例模式](zh-cn/java/design-mode/single-mode.md)
 - **Mysql相关**
   - **优化**
-    - [语法优化]()
-    - [索引优化]()
-  - **锁**
-    - [深入Mysql锁机制]()
-    - [死锁分析]()
+    - [优化常识](zh-cn\mysql\optimize\optimize-common-sense.md)
 - **Linux相关**
   - **基础入门**
     - [常用指令合集](zh-cn/linux/introduction/instruction-set.md)
