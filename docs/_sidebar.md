@@ -18,7 +18,9 @@
   - introduction
     - [常用指令合集](zh-cn/linux/introduction/instruction-set.md)
   - 环境部署
+    - [Java环境配置](zh-cn/linux/deployment-environment/java.md)
     - [Jenkins安装及部署](zh-cn/linux/deployment-environment/jenkins.md)
+    - [Arthas安装](zh-cn/linux/deployment-environment/arthas.md)
 - **开源项目**
   - 开源阅读
     - [arthas源码简析](zh-cn/opensource/opensource-read/arthas.md)
