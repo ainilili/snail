@@ -7,6 +7,7 @@
     - [ArrayList](zh-cn/java/data-structure/arraylist.md)
   - **设计模式**
     - [单例模式](zh-cn/java/design-mode/single-mode.md)
+    - [适配器模式](zh-cn/java/design-mode/adapter-mode.md)
 - **Mysql相关**
   - **优化**
     - [优化常识](zh-cn\mysql\optimize\optimize-common-sense.md)
