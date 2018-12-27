@@ -1,19 +1,19 @@
 ## 一、环境配置
 #### OS版本
 
-```
+```powershell
 [root@VM_0_11_centos /]# rpm -qa | grep centos-release
 centos-release-7-4.1708.el7.centos.x86_64
 ```
 #### Java版本
-```
+```powershell
 [root@VM_0_11_centos /]# java -version
 openjdk version "1.8.0_181"
 OpenJDK Runtime Environment (build 1.8.0_181-b13)
 OpenJDK 64-Bit Server VM (build 25.181-b13, mixed mode)
 ```
 #### Maven版本
-```
+```powershell
 [root@VM_0_11_centos /]# mvn -v
 Apache Maven 3.0.5 (Red Hat 3.0.5-17)
 Maven home: /usr/share/maven
@@ -23,52 +23,52 @@ Default locale: en_US, platform encoding: UTF-8
 OS name: "linux", version: "3.10.0-693.el7.x86_64", arch: "amd64", family: "unix"
 ```
 #### Git版本
-```
+```powershell
 [root@VM_0_11_centos /]# git --version
 git version 1.8.3.1
 ```
 ## 二、安装
 
 #### Java安装
-```
+```powershell
 yum install java-1.8.0-openjdk.x86_64
 ```
 #### Maven安装
-```
+```powershell
 yum install maven
 ```
 #### Git安装
-```
+```powershell
 yum install git
 ```
 #### Jenkins安装
 
 rpm包地址：[https://pkg.jenkins.io/redhat-stable/](https://pkg.jenkins.io/redhat-stable/)
-```
+```powershell
 rpm -ivh xxx.npm
 ```
 执行以上指令后即安装完毕，查看一下jenkins所在目录
-```
+```powershell
 whereis jenkins
 ```
 控制台输出
-```
+```powershell
 [root@VM_0_11_centos /]# whereis jenkins
 jenkins: /usr/lib/jenkins
 ```
 默认jenkins的配置文件在```/etc/sysconfig/jenkins```
 
 启动jenkins
-```
+```powershell
 service jenkins start
 ```
 关闭jenkins
-```
+```powershell
 service jenkins stop
 ```
 ## 三、Jenkins部署Maven项目
 Jenkins启动只有的默认端口为8080，在保证服务器安全组开放8080端口（或者自己在```/etc/sysconfig/jenkins```配置文件中修改端口）的前提下，我们可以直接通过浏览器访问Jenkins
-```
+```powershell
 http://xxxxxx:8080
 ```
 第一次进入Jenkins会让你走几个步骤

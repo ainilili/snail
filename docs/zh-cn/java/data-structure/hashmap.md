@@ -10,7 +10,7 @@
 Map是一种``K-V``形式的数据结构，一个唯一的key，会唯一对应一个value。也就是说，在Map容器里不允许两个一模一样的key。
 
 一个简单的Map结构如下：
-```
+```java
 {
   "key1":"value1",
   "key2":"value2",
@@ -18,7 +18,7 @@ Map是一种``K-V``形式的数据结构，一个唯一的key，会唯一对应�
 }
 ```
 对于这种数据结构，并且Map会对外提供一些方法来实现对内部数据的操作：
-```
+```java
 V put(K key, V value)
 V get(Object key)
 V remove(Object key)
@@ -63,7 +63,7 @@ static class Node<K,V> implements Map.Entry<K,V> {
 > **hash冲突**：两个元素的经过Hash散列之后分在同一个组内，我们将之解释为Hash冲突
 
 在JDK1.7之前的版本，hash冲突的解决方法是将被冲突的Node结点放于一个链表中，而Table中的元素则是链头，当然在JDK1.8中，当Table中链长超过``TREEIFY_THRESHOLD``阈值后，将会将链表转变为红黑树的实现``TreeNode``：
-```
+```java
 static final class TreeNode<K,V> extends LinkedHashMap.Entry<K,V> {
   TreeNode<K,V> parent;  // red-black tree links
   TreeNode<K,V> left;
@@ -139,7 +139,7 @@ final V putVal(int hash, K key, V value, boolean onlyIfAbsent,
 
 ### resize方法
 HashMap的扩容大致的实现是将老Table数组中所有的Entry取出来，重新对其hashcode做``Hash``散列到新的新的Table之中，也就是一个``re-put``的过程，具体还是通过源码来讲解：
-```Java
+```java
 final Node<K,V>[] resize() {
     //保留老的hash表
     Node<K,V>[] oldTab = table;
@@ -255,7 +255,7 @@ final Node<K,V> getNode(int hash, Object key) {
 ```
 ### containsKey方法
 根据get方法的结果是否为空就可以直到是否包含该key：
-```
+```java
 public boolean containsKey(Object key) {
     return getNode(hash(key), key) != null;
 }

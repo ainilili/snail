@@ -27,7 +27,7 @@
 这就引出了两种实现模式：``饿汉模式``和``懒汉模式``。
 ## 饿汉模式
 饿汉从字面上的意思我们可以想到一个特别饥饿的大汉，而对于单例来讲则是形容以``迫不及待``的方式去将私有实例赋值，代码实现如下：
-```
+```java
 public class Single {
 	private static Single instance = new Single();
 	private Single() {}
@@ -40,7 +40,7 @@ public class Single {
 
 ## 懒汉模式
 懒汉模式则是在调用公有静态方法时才会为私有变量赋值：
-```
+```java
 public class Single {
 	private volatile static Single instance = null;// 1
 	private Single() {}
@@ -66,13 +66,13 @@ public class Single {
 > 在Java中看似顺序的代码在JVM中，可能会出现编译器或者CPU对这些操作指令进行了重新排序；在特定情况下，指令重排将会给我们的程序带来不确定的结果.....
 
 对于``instance = new Single()``这一行代码，JVM执行的指令有多行：
-```
+```java
 memory = allocate(); //1：分配对象的内存空间
 ctorInstance(memory); //2：初始化对象
 instance = memory; //3：设置instance指向刚分配的内存地址
 ```
 经重排后如下：
-```
+```java
 memory = allocate(); //1：分配对象的内存空间
 instance = memory; //3：设置instance指向刚分配的内存地址，此时对象还没被初始化
 ctorInstance(memory); //2：初始化对象

@@ -14,7 +14,7 @@ Arthas正常运行流程如下：
 - 进行客户端和服务端的交互
 
 Server启动链
-```
+```mermaid
 graph LR
     as.sh -- starting server --> arthas-core:Arthas
     arthas-core:Arthas --> arthas-agent:AgentBootstrap
@@ -22,10 +22,9 @@ graph LR
     arthas-agent:AgentBootstrap -->  arthas-spy:Spy
 ```
 Client启动链
-```
+```mermaid
 graph LR
     as.sh -- starting client --> arthas-client:TelnetConsole
-
 ```
 
 Arthas使用``telnet``的方式进行Server-Client模式的通讯，对应的启动入口如下：
@@ -173,7 +172,7 @@ Arthas是一个机遇``telnet``协议的客户端和服务端交互的过程，�
 当然，有些指令使用``AnnotatedCommand``是满足不了的，如定时监控，需要实时不断的将监控信息推送给客户端，这时就要通过继承``EnhancerCommand``类来做到这一点。
 
 以上，Arthas的基本架构如下：
-```
+```mermaid
 graph LR
     Client -- command --> Server
     Server -- find command resolver --> Command-Resolver

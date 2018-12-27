@@ -87,14 +87,14 @@ public boolean remove(Object o) {
 这里很简单，通过遍历``elementData``然后依次判断是否和被移除的元素相等，如果相等则移除，并返回``true``。通过代码可以看到，如果将一个元素执行多次``add``，那么需要执行同样次数的``remove``才可以删干净!
 ### subList方法
 首先说明一下，这个方法要慎用，从方法名字和方法参数来看，让人感觉是将List截取一部分供大家使用，就像String的``subString``方法一样，其返回值是一个新的对象，然而其内部实现却并非如此：
-```Java
+```java
 public List<E> subList(int fromIndex, int toIndex) {
    subListRangeCheck(fromIndex, toIndex, size);
    return new SubList(this, 0, fromIndex, toIndex);
 }
 ```
 通过源码可以看到，首先会进行范围检测，之后会返回一个``SubList``对象，貌似没什么问题，别急，我们进一步看一下``SubList``这个类：
-```Java
+```java
 SubList(AbstractList<E> parent,
                 int offset, int fromIndex, int toIndex) {
     this.parent = parent;
@@ -107,7 +107,7 @@ SubList(AbstractList<E> parent,
 该类的构造方法需要传入一个List对象并将其赋值给SubList的parent变量，毋容置疑，这个对象就是当前的ArrayList对象，还有``offset``、``fromIndex``、``toIndex``。
 
 此时我们会发现有些不妙，为啥一个新的List还会有from和to这种东西？于是我们带着好奇心去看一看它的``add``方法：
-```Java
+```java
 public void add(int index, E e) {
     rangeCheckForAdd(index);
     checkForComodification();

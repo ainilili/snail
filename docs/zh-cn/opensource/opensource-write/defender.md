@@ -18,7 +18,7 @@
 
 ### 方案三：自定义注解
 我们将方案一和方案二结合一下，取一灵活，取二通用，我们自定义一个名为``@Auth``的注解，并且它需要传一个参数，我们这里直径定义为枚举类``Level``，简单结构如下：
-```
+```java
 public enum Level { LOGIN, ADMIN }
 ```
 之后我们定义一个注解切面，切向携带``@Auth``的方法，在方法执行前根据value值的内容，也就是``Level``的值去做不同的权限管理即可。
@@ -42,7 +42,7 @@ public enum Level { LOGIN, ADMIN }
 它可以免除我们重复编写自定义注解和切面，只需要调用简单的API即可灵活的指定不同模式的防御网络。
 ### 为何优雅
 ``defender``提供小巧灵活的API去制定你想要的权限过滤网络，提供很多种防御模式，我们可以通过调用简单的api是使用构建不同模式的校验器，从而迅速完成权限的管理：
-```
+```java
 @Configuration
 @EnableDefender("* org.nico.trap.controller..*.*(..)")
 public class DefenderTestConfig {
@@ -62,7 +62,7 @@ public class DefenderTestConfig {
 上述代码的作用是对请求符合``POST``类型且URI前缀为``/user/``的所有接口做了权限管理。
 
 另外，我们可以使用``lambda``简单完成权限校验逻辑，又或者使用匿名类实现复杂校验逻辑：
-```
+```java
 Guarder.builder(GuarderType.ANNOTATION)
 		.pattern("org.nico.trap.controller")
 		.preventer(new AbstractPreventer() {

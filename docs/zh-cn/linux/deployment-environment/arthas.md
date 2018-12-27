@@ -20,13 +20,13 @@
 首先去Oracle下载JDK，可以通过```wget```或者```curl -O```来下载到Linux主机上。
 
 最方便的就是下载一个tar.gz格式的压缩包，然后通过```tar -zxf```解压，以下是笔者最终存放jdk的物理路径
-```
+```powershell
 [nico@VM_0_17_centos jdk1.8.0_181]$ pwd
 /usr/lib/java-1.8.0/jdk1.8.0_181
 ```
 
 接下来配置环境变量，通过```vim /etc/profile```进入编辑操作，并增加以下配置
-```
+```powershell
 export JAVA_HOME=/usr/lib/java-1.8.0/jdk1.8.0_181
 export JRE_HOME=$JAVA_HOME/jre
 export CLASSPATH=$JAVA_HOME/lib/
@@ -37,25 +37,25 @@ export PATH=$JAVA_HOME/bin:$MAVEN_HOME/bin:$PATH
 然后分别执行```java```和```javac```验证环境是否生效
 #### 2.安装Arthas
 Arthas非常小巧，官方有一个可直接执行的sh脚本供我们使用，可以通过以下指令下载
-```
+```powershell
 curl -L https://alibaba.github.io/arthas/install.sh | sh
 ```
 启动Arthas
-```
+```powershell
 ./as.sh
 ```
 #### 3.安装ElasticSearch
 Arthas启动需要存在至少一个及以上的Java进程，这里我们为了方便测试，直接安装ElasticSearch。
 
 和安装JDK的方式类似，我们去官方下载一个```tar.gz```的压缩包，然后解压
-```
+```powershell
 [nico@VM_0_17_centos elasticsearch]$ ll
 total 95612
 drwxr-xr-x 9 nico root     4096 Sep 19 09:03 elasticsearch-6.4.0
 -rw-r--r-- 1 nico root 97901357 Aug 23 23:21 elasticsearch-6.4.0.tar.gz
 ```
 ElasticSearch的不允许**root**用户启动，所以笔者用的是**nico**账号，创建账号过程如下
-```
+```powershell
 adduser nico
 passwd nico
 #输入密码
@@ -65,22 +65,22 @@ chown -R nico elasticsearch
 su nico
 ```
 以上指令请分开到对应的目录执行，执行完毕之后我们进入elasticsearch目录下的bin目录中，启动elasticsearch
-```
+```powershell
 ./elasticsearch
 ```
 #### 4.使用Arthas监控ElasticSearch
 进入```as.sh```所在目录，启动Arthas
-```
+```powershell
 ./as.sh
 ```
-```
+```powershell
 [nico@VM_0_17_centos arthas]$ ./as.sh
 Arthas script version: 3.0.4
 Found existing java process, please choose one and hit RETURN.
 * [1]: 19670 org.elasticsearch.bootstrap.Elasticsearch
 ```
 我们看到，当前只有ElasticSearch一个进程，输入1监控ElasticSearch
-```
+```powershell
 [nico@VM_0_17_centos arthas]$ ./as.sh
 Arthas script version: 3.0.4
 Found existing java process, please choose one and hit RETURN.
@@ -116,7 +116,7 @@ $
 (1)遇到报错```java.security.AccessControlException: Access Denied ```
 
 官方解决办法
-```
+```powershell
 Add the permission in client.policy (for the application client), or in server.policy (for EJB/web modules) for the application that needs to set the property. By default, applications only have “read” permission for properties.
 
 For example, to grant read/write permission for all the files in the codebase directory, add or append the following to client.policy or server.policy:
@@ -126,10 +126,10 @@ grant codeBase "file:/.../build/sparc_SunOS/sec/-" {
  };
 ```
 java.policy所在的目录为JDK所在目录下的相对目录```jre/lib/security```
-```
+```powershell
 vim java.policy
 ```
 尾部增加一行即可
-```
+```powershell
 permission java.security.AllPermission;
 ```

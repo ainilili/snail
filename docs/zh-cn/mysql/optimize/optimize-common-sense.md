@@ -39,15 +39,15 @@
  - 查看Mysql执行日志，看看是否有其他方面的问题。
 
 ## 分页优化
-```
+```sql
 SELECT * FROM table ORDER BY id LIMIT 1000000, 10; 
 ```
 初级优化
-```
+```sql
 SELECT * FROM table WHERE id >= (SELECT id FROM table LIMIT 1000000, 1) LIMIT 10; 
 ```
 高级优化
-```
+```sql
 SELECT * FROM table WHERE id BETWEEN 1000000 AND 1000010; 
 ```
 总结：
@@ -56,15 +56,15 @@ SELECT * FROM table WHERE id BETWEEN 1000000 AND 1000010; 
 
 ## 查看锁表信息
 当前运行的所有事务
-```
+```sql
 select * from information_schema.innodb_trx
 ```
 当前出现的锁
-```
+```sql
 select * from information_schema.innodb_locks
 ```
 锁等待的对应关系
-```
+```sql
 select * from information_schema.innodb_lock_waits  
 ```
 ## 优化配置

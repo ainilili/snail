@@ -52,7 +52,7 @@ Ourbatis是一款Mybatis开发增强工具，小巧简洁，项目地址：
  - Mysql
 
  以```Spring Boot 2.0.5.RELEASE```版本为例，在可以正常使用Mybatis的项目中，```pom.xml```添加如下依赖：
- ```
+ ```xml
     <dependency>
         	<groupId>com.smallnico</groupId>
         	<artifactId>ourbatis-spring-boot-starter</artifactId>
@@ -60,17 +60,17 @@ Ourbatis是一款Mybatis开发增强工具，小巧简洁，项目地址：
 	</dependency>
 ```
 在配置文件中增加一下配置：
-```
+```java
 ourbatis.domain-locations=实体类所在包名
 ```
 接下来，Mapper接口只需要继承```SimpleMapper```即可：
-```
+```java
 import org.nico.ourbatis.domain.User;
-public interface UserMapper extends SimpleMapper<User, Integer>{
+  public interface UserMapper extends SimpleMapper<User, Integer>{
 }
 ```
 至此，一个使用Ourbatis的简单应用已经部署起来了，之后，你就可以使用一些Ourbatis默认的通用操作方法：
-```
+```java
 	public T selectById(K key);
 
 	public T selectEntity(T condition);
@@ -117,7 +117,7 @@ public interface UserMapper extends SimpleMapper<User, Integer>{
 在很多场景中，我们使用以上的自带的通用方法远远不能满足我们的需求，我们往往需要额外扩展新的Mapper方法、XML标签，我们使用了Ourbatis之后该如何实现呢？
 
 首先看一下我们的需求，在上述Demo中，我们在UserMapper中增加一个方法```selectNameById```：
-```
+```java
 import org.nico.ourbatis.domain.User;
 public interface UserMapper extends SimpleMapper<User, Integer>{
     public String selectNameById(Integer userId);
@@ -128,13 +128,13 @@ public interface UserMapper extends SimpleMapper<User, Integer>{
 DomainClassSimpleName + Mapper.xml
 ```
 其中```DomainClassSimpleName```就是我们实体类的类名，这里是为```User```，那么新建的XML名为```UserMapper.xml```。
-```
+```java
 src/main/resources
  - ourbatis-mappers
    - UserMapper.xml
 ```
 之后，打开```UserMapper.xml```，开始编写Mapper中```selectNameById```方法对应的标签：
-```
+```xml
 <select id="selectNameById" resultType="java.lang.String">
     select name from user where id = #{userId}
 </select>
@@ -166,7 +166,7 @@ public interface Wrapper<T> {
 
 #### 使用```ourbatis.xml```渲染元数据为XML文件
 而在于第2个核心点中，Ourbatis通过自定义标签做模板渲染，我们可以先看一下官方默认的```ourbatis.xml```内部构造：
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="@{mapperClassName}">
@@ -448,7 +448,7 @@ public static final Map<String, AssistAdapter> ASSIST_ADAPTERS = new HashMap<Str
 	};
 ```
 我们可以修改```org.nico.ourbatis.Ourbatis```类中的静态参数```ASSIST_ADAPTERS```去删除、更新和添加自定义标签，需要实现一个标签适配器，我们可以看一下最简单的```RefAdapter```适配器的实现：
-```
+```java
 public class RefAdapter extends AssistAdapter{
 	@Override
 	public String adapter(Map<String, Object> datas, NoelRender render, Document document) {
