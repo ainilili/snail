@@ -1,5 +1,5 @@
 ## 引导
-``ArrayList``是List大家组的一份子，祖先是``Collection``，也是我们最常用的数据结构之一，它的实现原理正如其名，其内部是一个对象数组：
+``ArrayList``是List大家族的一份子，祖先是``Collection``，也是我们最常用的数据结构之一，它的实现原理正如其名，其内部是一个对象数组：
 ```
 transient Object[] elementData;
 ```
