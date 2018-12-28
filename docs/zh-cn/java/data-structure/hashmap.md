@@ -34,7 +34,7 @@ Map在Java中的实现有很多，``HashMap``便是其中之一，在``JDK``漫�
 ### 实现原理
 对于各个版本的``HashMap``实现原理，主线流程都是一成不变的：
 
-![hashmap原理流程图](https://github.com/ainilili/snail/blob/master/docs/images/hashmap-1.8-1-1.jpg?raw=true)
+![hashmap原理流程图](https://github.com/ainilili/snail/blob/master/images/hashmap-1.8-1-1.jpg?raw=true)
 
 这里有两个数据结构需要我们知道：
  - **Table**：哈希表，存放Node元素。

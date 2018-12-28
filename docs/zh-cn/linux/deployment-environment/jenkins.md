@@ -78,60 +78,60 @@ http://xxxxxx:8080
  - 登入
 
 一顿操作，我们就来到了Jenkins的Dashboard页面
-![这里写图片描述](https://github.com/ainilili/snail/blob/master/docs/images/jenkins-1-1.jpg?raw=true)
+![这里写图片描述](https://github.com/ainilili/snail/blob/master/images/jenkins-1-1.jpg?raw=true)
 
 看到这里是不是很激动？别急，Jenkins的新建任务默认是没有Maven选项的,需要自行安装Jenkins的Maven插件！
 
 #### 1、安装Jenkins-Maven插件Maven Integration
 在首页中点击右侧的系统管理
-![这里写图片描述](https://github.com/ainilili/snail/blob/master/docs/images/jenkins-1-2.jpg?raw=true)
+![这里写图片描述](https://github.com/ainilili/snail/blob/master/images/jenkins-1-2.jpg?raw=true)
 选择管理插件
-![这里写图片描述](https://github.com/ainilili/snail/blob/master/docs/images/jenkins-1-3.jpg?raw=true)
+![这里写图片描述](https://github.com/ainilili/snail/blob/master/images/jenkins-1-3.jpg?raw=true)
 下载Maven Integration
-![这里写图片描述](https://github.com/ainilili/snail/blob/master/docs/images/jenkins-1-4.jpg?raw=true)
+![这里写图片描述](https://github.com/ainilili/snail/blob/master/images/jenkins-1-4.jpg?raw=true)
 点击立即获取之后，等待一分钟左右就下载好了
 
 #### 2、配置全局工具
 接着我们要做一些工具的配置
 
 再次进入系统管理，点击列表中的**全局工具配置**
-![这里写图片描述](https://github.com/ainilili/snail/blob/master/docs/images/jenkins-1-5.jpg?raw=true)
+![这里写图片描述](https://github.com/ainilili/snail/blob/master/images/jenkins-1-5.jpg?raw=true)
 配置JDK
-![这里写图片描述](https://github.com/ainilili/snail/blob/master/docs/images/jenkins-1-6.jpg?raw=true)
+![这里写图片描述](https://github.com/ainilili/snail/blob/master/images/jenkins-1-6.jpg?raw=true)
 配置Git
-![这里写图片描述](https://github.com/ainilili/snail/blob/master/docs/images/jenkins-1-7.jpg?raw=true)
+![这里写图片描述](https://github.com/ainilili/snail/blob/master/images/jenkins-1-7.jpg?raw=true)
 配置Maven
-![这里写图片描述](https://github.com/ainilili/snail/blob/master/docs/images/jenkins-1-8.jpg?raw=true)
+![这里写图片描述](https://github.com/ainilili/snail/blob/master/images/jenkins-1-8.jpg?raw=true)
 完毕之后点击```SAVE```按钮保存
 #### 3、配置任务信息
 经过前面两个步骤，我们的Jenkins可以正式开始工作了，不过在真正为我们提供服务之前，我们需要告诉任务该做什么事情，该怎么做。
 
 例如？我们要构建的项目从何而来？通过什么样的方式或者指令就构建？不废话，开始创建一个新的任务，并且是一个Maven项目
-![这里写图片描述](https://github.com/ainilili/snail/blob/master/docs/images/jenkins-1-9.jpg?raw=true)
+![这里写图片描述](https://github.com/ainilili/snail/blob/master/images/jenkins-1-9.jpg?raw=true)
 点击创建一个新任务进入下一步
-![这里写图片描述](https://github.com/ainilili/snail/blob/master/docs/images/jenkins-1-10.jpg?raw=true)
+![这里写图片描述](https://github.com/ainilili/snail/blob/master/images/jenkins-1-10.jpg?raw=true)
 选择创建一个Maven项目，确定之后，进入任务配置界面
 
 任务信息配置
-![这里写图片描述](https://github.com/ainilili/snail/blob/master/docs/images/jenkins-1-11.jpg?raw=true)
+![这里写图片描述](https://github.com/ainilili/snail/blob/master/images/jenkins-1-11.jpg?raw=true)
 源码库配置，Jenkins要知道如何获取到项目的源码
-![这里写图片描述](https://github.com/ainilili/snail/blob/master/docs/images/jenkins-1-12.jpg?raw=true)
+![这里写图片描述](https://github.com/ainilili/snail/blob/master/images/jenkins-1-12.jpg?raw=true)
 Maven打包指令配置
-![这里写图片描述](https://github.com/ainilili/snail/blob/master/docs/images/jenkins-1-13.jpg?raw=true)
+![这里写图片描述](https://github.com/ainilili/snail/blob/master/images/jenkins-1-13.jpg?raw=true)
 构建策略配置
-![这里写图片描述](https://github.com/ainilili/snail/blob/master/docs/images/jenkins-1-14.jpg?raw=true)
-![这里写图片描述](https://github.com/ainilili/snail/blob/master/docs/images/jenkins-1-15.jpg?raw=true)
+![这里写图片描述](https://github.com/ainilili/snail/blob/master/images/jenkins-1-14.jpg?raw=true)
+![这里写图片描述](https://github.com/ainilili/snail/blob/master/images/jenkins-1-15.jpg?raw=true)
 构建生命周期配置
-![这里写图片描述](https://github.com/ainilili/snail/blob/master/docs/images/jenkins-1-16.jpg?raw=true)
+![这里写图片描述](https://github.com/ainilili/snail/blob/master/images/jenkins-1-16.jpg?raw=true)
 这一步很关键，在Jenkins帮我们自动拉取代码并且打成jar包之后，我们需要执行shell指令去启动它们，```Pre Steps```和```Post Steps```使我们可以在整个周期内灵活的去控制流程~例如写个脚本启动它们！
 
 简单配置之后，点击保存，完成任务配置编辑！
 
 之后的事情就简单了，在首页可以看到一个任务列表，选中自己的任务点击进入
-![这里写图片描述](https://github.com/ainilili/snail/blob/master/docs/images/jenkins-1-17.jpg?raw=true)
+![这里写图片描述](https://github.com/ainilili/snail/blob/master/images/jenkins-1-17.jpg?raw=true)
 点击左侧工具栏的立即构建~
-![这里写图片描述](https://github.com/ainilili/snail/blob/master/docs/images/jenkins-1-18.jpg?raw=true)
+![这里写图片描述](https://github.com/ainilili/snail/blob/master/images/jenkins-1-18.jpg?raw=true)
 Jenkins简单部署完成，看下我的任务构建控制台输出日志
-![这里写图片描述](https://github.com/ainilili/snail/blob/master/docs/images/jenkins-1-19.jpg?raw=true)
+![这里写图片描述](https://github.com/ainilili/snail/blob/master/images/jenkins-1-19.jpg?raw=true)
 
 看到最下方的成功就代表项目已经成功部署！

@@ -1,7 +1,8 @@
 <div align="center">
 
 <img src="https://raw.githubusercontent.com/ainilili/snail/master/docs/images/logo-1-1.jpg" width=""/>
-<H1 style="margin-top:20px;"> Snail Study Hub</H1>
+
+# Snail
 
 [![group](https://img.shields.io/badge/group-322359847-blue.svg)](https://jq.qq.com/?_wv=1027&k=54WtvXb)
 [![PRs Welcome](https://img.shields.io/badge/prs-welcome-orange.svg)](http://makeapullrequest.com)
