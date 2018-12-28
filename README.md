@@ -10,7 +10,8 @@
 </div>
 
 蜗牛动作虽慢，但是，爬上一个让所有人仰望的高度只是时间的问题，凡事贵在坚持，立此项目，希望自己能够像蜗牛一样坚持不懈的为目标不停的前进着，乐此不疲地挑战一个又一个的高度！
- - 加入我们：[如何贡献！](https://github.com/ainilili/snail/CONTRIBUTING.md)
+
+## 开始
  - 获取更好的学习体验：[学习，由此开始！](http://study.ikuvn.com)
 
 ## 目录
@@ -40,3 +41,6 @@
   - **开源编写**
     - [mybatis-ourbatis](docs/zh-cn/opensource/opensource-write/ourbatis.md)
     - [spring-boot权限管理框架defender](docs/zh-cn/opensource/opensource-write/defender.md)
+
+## 加入
+ - [加入我们](https://github.com/ainilili/snail/CONTRIBUTING.md)
