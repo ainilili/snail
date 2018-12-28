@@ -143,10 +143,10 @@ src/main/resources
 
 接下来，就没有接下来了，可以直接使用```selectNameById```方法了。
 ### 深入了解Ourbatis
-![ourbatis 流程图](https://github.com/ainilili/snail/blob/master/docs/images/ourbatis-1-1.jpg?raw=true)
+![ourbatis 流程图](https://github.com/ainilili/snail/blob/master/images/ourbatis-1-1.jpg?raw=true)
 
 当服务启动的时候，Ourbatis首先会扫描```ourbatis.domain-locations```配置包下的所有实体类，将之映射为与之对应的表结构数据：
-![ourbatis Mapping](https://github.com/ainilili/snail/blob/master/docs/images/ourbatis-1-2.jpg?raw=true)
+![ourbatis Mapping](https://github.com/ainilili/snail/blob/master/images/ourbatis-1-2.jpg?raw=true)
 
 然后通过```ourbatis.xml```的渲染，生成一个又一个的XML文件，最后将之重新Build到Mybatis容器中！
 

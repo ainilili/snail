@@ -3,7 +3,7 @@
 
 作为一名开发人员，权限二字对我们的映像更加深刻，无论任何系统，都多多少少与权限管理会沾上关系！什么？你的系统和权限不沾边......好吧，你的代码拉取权限总得有吧！如果还没有的话，你登上掘金看到这篇文章并点了一个赞这个过程就需要好多次权限校验。好了扯远了，我们回归正题，这里使用一张图来简单展示web系统的权限是什么样子：
 
-![](https://github.com/ainilili/snail/blob/master/docs/images/defender-1-1.jpg?raw=true)
+![](https://github.com/ainilili/snail/blob/master/images/defender-1-1.jpg?raw=true)
 
 看完之后，是不是感觉很简单，不错，权限管理并不难，我们只需要将**校验**这一环节进行开发即可，实现方式也有很多种：
 ### 方案一：组件封装
@@ -37,7 +37,7 @@ public enum Level { LOGIN, ADMIN }
 ### Defender是什么
 ``defender``是一款全面拥抱``spring-boot``的轻量级，高灵活，高可用的权限框架。如果日常中我们需要更加优雅的对服务增加权限管理，那么``defender``正合适！
 
-![](https://github.com/ainilili/snail/blob/master/docs/images/defender-1-2.jpg?raw=true)
+![](https://github.com/ainilili/snail/blob/master/images/defender-1-2.jpg?raw=true)
 
 它可以免除我们重复编写自定义注解和切面，只需要调用简单的API即可灵活的指定不同模式的防御网络。
 ### 为何优雅
