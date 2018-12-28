@@ -17,5 +17,3 @@
  - [Github帮助](https://help.github.com/articles/fork-a-repo)
  - [Git](http://git-scm.com/)
  - [Git在线文档](http://git-scm.com/documentation)
-
-感谢大家支持，我们的成功离不开每一个人！
