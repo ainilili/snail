@@ -10,7 +10,7 @@
     - [适配器模式](zh-cn/java/design-mode/adapter-mode.md)
 - **Mysql相关**
   - **优化**
-    - [优化常识](zh-cn\mysql\optimize\optimize-common-sense.md)
+    - [优化常识](zh-cn/mysql/optimize/optimize-common-sense.md)
 - **Linux相关**
   - **基础入门**
     - [常用指令合集](zh-cn/linux/introduction/instruction-set.md)
