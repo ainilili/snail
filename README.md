@@ -4,7 +4,6 @@
 <h1 style="margin-top:20px"> Snail Study Hub</h1>
 
 [![group](https://img.shields.io/badge/group-322359847-blue.svg)](https://jq.qq.com/?_wv=1027&k=54WtvXb)
-
 [![PRs Welcome](https://img.shields.io/badge/prs-welcome-orange.svg)](http://makeapullrequest.com)
 
 </div>
