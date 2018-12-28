@@ -6,7 +6,6 @@
 [![group](https://img.shields.io/badge/group-322359847-blue.svg)](https://jq.qq.com/?_wv=1027&k=54WtvXb)
 [![PRs Welcome](https://img.shields.io/badge/prs-welcome-orange.svg)](http://makeapullrequest.com)
 
-<br><br>
 </div>
 
 蜗牛动作虽慢，但是，爬上一个让所有人仰望的高度只是时间的问题，凡事贵在坚持，立此项目，希望自己能够像蜗牛一样坚持不懈的为目标不停的前进着，乐此不疲地挑战一个又一个的高度！
