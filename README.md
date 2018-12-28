@@ -1,7 +1,7 @@
 <div align="center">
 
 <img src="https://raw.githubusercontent.com/ainilili/snail/master/docs/images/logo-1-1.jpg" width=""/>
-<p style="margin-top:20px;font-size:30px;"> Snail Study Hub</p>
+<H1 style="margin-top:20px;"> Snail Study Hub</H1>
 
 [![group](https://img.shields.io/badge/group-322359847-blue.svg)](https://jq.qq.com/?_wv=1027&k=54WtvXb)
 [![PRs Welcome](https://img.shields.io/badge/prs-welcome-orange.svg)](http://makeapullrequest.com)
@@ -10,8 +10,8 @@
 </div>
 
 蜗牛动作虽慢，但是，爬上一个让所有人仰望的高度只是时间的问题，凡事贵在坚持，立此项目，希望自己能够像蜗牛一样坚持不懈的为目标不停的前进着，乐此不疲地挑战一个又一个的高度！
- - [如何贡献！](https://github.com/ainilili/snail/CONTRIBUTING.md)
- - [学习，由此开始！](http://study.ikuvn.com)
+ - 加入我们：[如何贡献！](https://github.com/ainilili/snail/CONTRIBUTING.md)
+ - 获取更好的学习体验：[学习，由此开始！](http://study.ikuvn.com)
 
 ## 目录
 - **Java相关**
