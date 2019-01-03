@@ -8,6 +8,7 @@
   - **设计模式**
     - [单例模式](docs/zh-cn/java/design-mode/single-mode.md)
     - [适配器模式](docs/zh-cn/java/design-mode/adapter-mode.md)
+    - [工厂模式](docs/zh-cn/java/design-mode/factory-mode.md)
   - **Spring Cloud 大合集**
     - [Spring Cloud Config 入门](docs/zh-cn/java/spring-cloud/spring-cloud-config.md)
     - [Spring Cloud Eureka 扩展Nginx路由](docs/zh-cn/java/spring-cloud/spring-cloud-eureka-nginx-router.md)
