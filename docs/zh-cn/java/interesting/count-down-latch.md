@@ -1,5 +1,14 @@
 ## JUC的实现
-CountDownLatch的作用是作为一个同步锁，挂起当前线程，在多个线程状态达到一致的时候再继续运行当前线程，在实际应用中相当广泛，利用这个特性我们可以对一些场景业务做并发处理，如：
+CountDownLatch的作用是作为一个同步锁，挂起当前线程，在多个线程状态达到一致的时候再继续运行当前线程：
+```
+graph LR
+Thread-1-- CDL:countDown -->CDL:await
+Thread-2-- CDL:countDown -->CDL:await
+Thread-3-- CDL:countDown -->CDL:await
+CDL:await-- resume --> END
+```
+
+在实际应用中相当广泛，利用这个特性我们可以对一些场景业务做并发处理，如：
  - Zookeeper多结点连接状态同步
  - 大量数据分批处理后合并
 
