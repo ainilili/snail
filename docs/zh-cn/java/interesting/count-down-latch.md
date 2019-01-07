@@ -25,7 +25,7 @@ CountDownLatch是通过AQS这个并发框架实现的，核心是通过``Unsafe`
 ## 新的实现
 对于CountDownLatch的构造需要传入一个int数值作为计数器的初始值，并拥有两个核心方法：
  - **countDown**：减少计数。
- - **await**：对当前线程阻塞，知道计数器减为0。
+ - **await**：对当前线程阻塞，直到计数器减为0。
 
 我们知道，Object自带``wait()``、``notify``和``notifyAll``这三个方法，其中wait方法可以导致线程进入等待状态，直到它被其他线程通过notify()或者notifyAll唤醒，因此我们可以使用这个特性去代替``Unsafe``对线程进行挂起和运行！
 
