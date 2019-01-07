@@ -1,6 +1,6 @@
 ## JUC的实现
 CountDownLatch的作用是作为一个同步锁，挂起当前线程，在多个线程状态达到一致的时候再继续运行当前线程：
-```
+```mermaid
 graph LR
 Thread-1-- CDL:countDown -->CDL:await
 Thread-2-- CDL:countDown -->CDL:await
