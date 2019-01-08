@@ -250,3 +250,5 @@ public int getMaxDepth() {
 ```
 ## 总结
 通过BST引导入门是一个很不错的选择！
+
+源码地址：[传送门](https://github.com/ainilili/java-study-demo/blob/master/src/main/java/org/nico/data/structure/tree/BinarySortTree.java)
