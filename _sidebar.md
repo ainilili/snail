@@ -5,6 +5,7 @@
     - [HashMap](docs/zh-cn/java/data-structure/hashmap.md)
     - [Hash](docs/zh-cn/java/data-structure/hash.md)
     - [ArrayList](docs/zh-cn/java/data-structure/arraylist.md)
+    - [BinarySortTree](docs/zh-cn/java/data-structure/binary-sort-tree.md)
   - **设计模式**
     - [单例模式](docs/zh-cn/java/design-mode/single-mode.md)
     - [工厂模式](docs/zh-cn/java/design-mode/factory-mode.md)
