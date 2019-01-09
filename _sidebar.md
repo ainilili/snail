@@ -12,6 +12,8 @@
     - [适配器模式](docs/zh-cn/java/design-mode/adapter-mode.md)
     - [桥接模式](docs/zh-cn/java/design-mode/bridge-mode.md)
     - [建造者模式](docs/zh-cn/java/design-mode/builder-mode.md)
+  - **JVM**
+    - [JVM模型](docs/zh-cn/java/jvm/jvm-model.md)
   - **Spring Cloud 大合集**
     - [Spring Cloud Config 入门](docs/zh-cn/java/spring-cloud/spring-cloud-config.md)
     - [Spring Cloud Eureka 扩展Nginx路由](docs/zh-cn/java/spring-cloud/spring-cloud-eureka-nginx-router.md)
