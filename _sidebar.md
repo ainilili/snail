@@ -14,6 +14,8 @@
     - [建造者模式](docs/zh-cn/java/design-mode/builder-mode.md)
   - **JVM**
     - [JVM内存模型](docs/zh-cn/java/jvm/jvm-memory-model.md)
+  - **并发**
+    - [AQS](docs/zh-cn/java/concurrency/abstract-queued-synchronizer.md)
   - **Spring Cloud 大合集**
     - [Spring Cloud Config 入门](docs/zh-cn/java/spring-cloud/spring-cloud-config.md)
     - [Spring Cloud Eureka 扩展Nginx路由](docs/zh-cn/java/spring-cloud/spring-cloud-eureka-nginx-router.md)
