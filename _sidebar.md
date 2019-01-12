@@ -28,6 +28,7 @@
 - **Linux相关**
   - **基础入门**
     - [常用指令合集](docs/zh-cn/linux/introduction/instruction-set.md)
+    - [htop查看资源分配情况](docs/zh-cn/linux/introduction/htop.md)
   - **环境部署**
     - [Java环境配置](docs/zh-cn/linux/deployment-environment/java.md)
     - [Jenkins安装及部署](docs/zh-cn/linux/deployment-environment/jenkins.md)
