@@ -32,6 +32,7 @@
     - [Java环境配置](docs/zh-cn/linux/deployment-environment/java.md)
     - [Jenkins安装及部署](docs/zh-cn/linux/deployment-environment/jenkins.md)
     - [Arthas安装](docs/zh-cn/linux/deployment-environment/arthas.md)
+    - [Nginx安装及入门](docs/zh-cn/linux/deployment-environment/nginx.md)
 - **开源项目**
   - **开源阅读**
     - [arthas源码简析](docs/zh-cn/opensource/opensource-read/arthas.md)
