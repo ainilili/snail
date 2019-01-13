@@ -218,13 +218,3 @@ private final boolean parkAndCheckInterrupt() {
 ```
 >节点可能存在没有后继节点或者取消（超时、中断）的情况，则需要跳过此节点。
 >继续寻找node.next可用节点时，仍然可能存在null或者取消的情况，所以采用tail回溯方法寻找第一个可用线程，并唤醒该线程
-
-#### 3.2 Semaphore 信号量
-
-#### 3.3 CyclicBarrier 同步屏障
-
-#### 3.4 ReentrantLock
-
-#### 3.5 ReentrantReadWriteLock
-
-待续....
