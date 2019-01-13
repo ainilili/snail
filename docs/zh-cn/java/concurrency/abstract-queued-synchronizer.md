@@ -3,9 +3,6 @@
 - [2 原理](#2-原理)
     - [2.1 核心状态方法](#2.1-核心状态方法)
     - [2.2 资源共享方式](#2.2-资源共享方式)
-- [3 AQS组件](#3-AQS组件)
-    - [3.1 CountDownLatch 计时器](#3.1-CountDownLatch-计时器)
-    - [3.2 Semaphore 信号量](#-Semaphore-信号量)
 
 ### 1 AQS 简介
 AQS全称`AbstractQueuedSynchronizer`，即**队列同步器**，位于`java.util.concurrent.locks`包下，由著名并发编程大师`Doug Lea`于JDK1.5实现**J.U.C包中的核心基础组件**
@@ -13,8 +10,64 @@ AQS全称`AbstractQueuedSynchronizer`，即**队列同步器**，位于`java.uti
 
 ![AQS实现的方法](https://user-gold-cdn.xitu.io/2018/12/27/167eb5eb024d9bcd?w=655&h=371&f=png&s=90429)
 
+#### 公平锁 / 非公平锁
+**公平锁** 多个线程完全按照申请锁的顺序来获取锁
+**非公平锁** 多个线程获取锁的线程并不一定按照申请锁的顺序，有可能后申请的线程比先申请的线程优先获取锁。但可能会造成优先级反转或者线程饿死现象。
+
+> 对于**ReentrantLock**而言，通过构造函数指定该锁是否为公平锁，默认非公平锁，非公平锁的有点在于吞吐量比公平锁要大。
+> 对于**synchronized**而言，也是一种非公平锁。由于其不像**ReentrantLock**是通过**AQS**的来实现线程调度，所以并没有任何办法使其变成公平锁。
+
+#### 可重入锁 / 不可重入锁
+Wiki：可重入互斥锁（英语：reentrant mutex）是互斥锁的一种，同一线程对其多次加锁不会产生死锁。可重入互斥锁也称递归互斥锁（英语：recursive mutex）或递归锁（英语：recursive lock）。
+如果对已经上锁的普通互斥锁进行“加锁”操作，其结果要么失败，要么会阻塞至解锁。而如果换作可重入互斥锁，当且仅当尝试加锁的线程就是持有该锁的线程时，类似的加锁操作就会成功。可重入互斥锁一般都会记录被加锁的次数，只有执行相同次数的解锁操作才会真正解锁。递归互斥锁解决了普通互斥锁不可重入的问题：如果函数先持有锁，然后执行回调，但回调的内容是调用它自己，就会产生死锁。
+##### 可重入锁
+广义上的可重入锁指的是**可重复可递归调用**的锁，在外层使用锁之后，在内层仍然可以使用，并且会不发生死锁（前提是同一个对象或者class），这样的锁叫做可重入锁。
+**ReentrantLock**和**synchronized**都是可重入锁
+```java
+public synchronized void setA() throws InterruptedException {
+    TimeUnit.SECONDS.sleep(1);
+    setB();
+}
+public synchronized void setB() throws InterruptedException {
+    TimeUnit.SECONDS.sleep(1);
+}
+```
+如上的代码就是一个可重入锁的一个特点，如果不是可重入锁的话，setB可能不会被执行，等待setA锁的释放，造成死锁。
+##### 不可重入锁
+不可重入锁与可重入锁相反，不可递归调用，递归调用就会发生死锁。
+自旋锁就是一个很精单的不可重入锁。
+```java
+import java.util.concurrent.atomic.AtomicReference;
+
+public class UnreentrantLock {
+    private AtomicReference<Thread> owner = new AtomicReference<Thread>();
+
+    public void lock() {
+        Thread current = Thread.currentThread();
+        for (;;) {
+            if (!owner.compareAndSet(null, current)) {
+                return;
+            }
+        }
+    }
+
+    public void unlock() {
+        Thread current = Thread.currentThread();
+        owner.compareAndSet(current, null);
+    }
+}
+```
+使用原子引用存放线程，同一线程两次调用 lock() 方法，不调用 unlock() 释放锁的话，第二次调用自旋锁的时候就会产生死锁，这个锁就是不可重入，而实际上同一个线程不必每次都去释放锁再来获取锁，避免频繁调度切换耗费资源。
+
+#### 互斥锁 / 读写锁
+##### 互斥锁
+在访问共享资源时进行加锁操作，访问结束之后进行解锁操作。加锁后其他任何试图加锁的线程都会被阻塞，直到持有锁的线程解锁。
+
+##### 读写锁
+读写锁即是互斥锁，又是共享锁，read模式是共享，write是互斥的。
+
 ### 2 原理
-**核心思想：通过STATE同步状态位、FIFO的CLH队列锁，只能在一个时刻发生阻塞，降低上下文切换开销，从而提高吞吐量。**
+**核心思想：通过state同步状态位、FIFO的CLH队列锁，只能在一个时刻发生阻塞，降低上下文切换开销，从而提高吞吐量。**
 
 AQS对象内部通过一个**volatile**修饰的int类型的核心变量**state**表示加锁状态。初始状态下，这个state的值为0。
 
@@ -25,7 +78,6 @@ volatile int state;                 // 共享状态变量
 volatile Thread thread;     // 当前加锁线程
 volatile Node prev;         //前驱节点
 volatile Node next;         //后继节点
-
 ```
 
 > CLH(Craig,Landin,and Hagersten)队列是一个虚拟的FIFO双向队列（虚拟的双向队列即不存在队列实例，仅存在结点之间的关联关系）。AQS是将每条请求共享资源的线程封装成一个CLH锁队列的一个结点（Node）来实现锁的分配，同时会挂起当前线程吗，当同步状态释放时，会把首节点唤醒（公平锁），使其再次尝试获取同步状态。
@@ -33,11 +85,35 @@ volatile Node next;         //后继节点
 
 通过内置的FIFO同步队列完成资源获取线程的排队工作，如果获取锁（同步状态）失败，则会把当前线程和状态等信息构造成一个结点（Node）并加入同步等待队列，当同步状态释放时，则会把结点中线程唤醒以再次尝试获取锁
 
-TODO Node节点长截图
+```java
+static final class Node {
+    static final Node SHARED = new Node();
+    static final Node EXCLUSIVE = null;
+    //表示当前的线程被取消；
+    static final int CANCELLED =  1;
+    //表示当前节点的后继节点包含的线程需要运行，也就是unpark；
+    static final int SIGNAL    = -1;
+    //表示当前节点在等待condition，也就是在condition队列中；
+    static final int CONDITION = -2;
+    //表示当前场景下后续的acquireShared能够得以执行；
+    static final int PROPAGATE = -3;
+    //表示节点的状态。默认为0，表示当前节点在sync队列中，等待着获取锁。
+    //其它几个状态为：CANCELLED、SIGNAL、CONDITION、PROPAGATE
+    volatile int waitStatus;
+    //前驱节点
+    volatile Node prev;
+    //后继节点
+    volatile Node next;
+    //获取锁的线程
+    volatile Thread thread;
+    //存储condition队列中的后继节点。
+    Node nextWaiter;
+}
+```
 
 #### 2.1 核心状态方法
 
-**由于良好的设计，AQS具有充分的可伸缩性，并隐藏了大量实现细节，从而可以极大的方便扩展**
+**由于良好的设计，AQS具有充分的可伸缩性，实现了大量实现通用细节，从而可以极大的方便扩展**
 
 ![AQS](https://user-gold-cdn.xitu.io/2018/12/29/167f7e584754b919?w=875&h=894&f=png&s=90391)
 
@@ -51,11 +127,12 @@ protected final boolean compareAndSetState(int expect, int update) {
 ```
 
 #### 2.2 资源共享方式
->同步状态，以下简称锁
-- **Exclusive**（独占）：同一时刻只有一个线程能够获取锁执行，如`ReentrantLock`。又可以分为公平锁和非公平锁。
+同步状态，以下简称锁
+- **Exclusive**（独占）：同一时刻只有一个线程持有，如`ReentrantLock`，`synchronized`。又可以分为公平锁和非公平锁。
     - **FairSync**（公平锁）：严格按照线程在队列中的FIFO顺序，即先到先得（锁）
     - **NonfairSync**（非公平锁）：新加入的线程会尝试通过CAS抢占锁，无视队列顺序，失败则加入同步等待队列。此锁大多数情况下会带来更好的IO性能，但有可能会造成线程饿死（线程一直处于等待状态无法获取锁）
-- **Share**（共享）：多个线程可以同时执行，如Semaphore/CountDownLatch、ReadWriteLock。
+- **Share**（共享）：多个线程可以同时执行，如Semaphore/CountDownLatch、ReentrantReadWriteLock里的读锁是共享的，但是写锁每次只能被独占。
+读锁的共享可以保证并发读非常高效，但是读写、写写，写读都是互斥
 
 **不同的同步器争用共享资源的方式也不同，自定义同步器在实现时只需要实现共享资源state的获取与释放即可，对于线程等待队列的维护已经由AQS在上层实现。**
 
@@ -80,141 +157,3 @@ tryReleaseShared(int); //共享式释放锁
 ReentrantReadWriteLock`
 
 >AQS其他方法均为`final`，所以无法被其他自定义同步器重写使用
-
-### 3 AQS组件
-
-#### 3.1 CountDownLatch 计时器
-
-##### 能做什么？
-
->能够允许一个或多个线程阻塞等待，直到所有的线程执行完毕后再继续执行剩余操作。
-
-##### 如何使用？
-
-```java
-        int count = 10;
-        CountDownLatch cdl = new CountDownLatch(count); //实例化对象，并初始化STATE为count
-        for (int i = 0; i < count; i++) {
-            new Thread(new Runable() {
-                public void run() {
-                    try {
-                        // do something
-                    } finally {
-                        cdl.countDown(); // STATE - 1
-                    }
-                }
-            }).start();
-        }
-        cdl.await(); //挂起线程，等待STATE = 0，继续剩余操作
-        // do something
-```
-
-##### 如何实现？
-
-![CountDownLatch继承AQS](https://user-gold-cdn.xitu.io/2018/12/27/167ef96070c28d7b)
-
->CountDownLatch只需要实现少量代码即可实现相应的功能。
-
-![CountDownLatch构造函数](https://user-gold-cdn.xitu.io/2018/12/27/167efb28587a671c?w=605&h=79&f=png&s=9275)
-
-实例化对象同时将继承了AQS的内部类Sync初始化state为count。Sync由于可共享，只需要重写`tryAcquireShared(int)`与`tryReleaseShared(int)`方法。
-
-`await()`调用`sync.acquireSharedInterruptibly`中的`tryAcquireShared(arg)`判断当前是否还有正在执行的线程，如果还有线程已经完成，直接返回，否则通过`doAcquireSharedInterruptibly(arg)`通过不断自旋的方式不断获取同步状态，但在自旋中需要调用`shouldParkAfterFailedAcquire()`判断当前线程是否需要挂起，通过方法`
-acquireQueued()`，并向队尾新增一个节点并将前节点设为`SIGNAL`等待标志位，通过`LockSupport.park()`方法调用`park()`进入挂起线程，停止消耗资源。
-
-```java
-   private static boolean shouldParkAfterFailedAcquire(Node pred, Node node) {
-        //前驱节点
-        int ws = pred.waitStatus;
-        //状态为signal，表示当前线程处于等待状态，直接放回true
-        if (ws == Node.SIGNAL)
-            return true;
-        //前驱节点状态 > 0 ，则为Cancelled,表明该节点已经超时或者被中断了，需要从同步队列中取消
-        if (ws > 0) {
-            do {
-                node.prev = pred = pred.prev;
-            } while (pred.waitStatus > 0);
-            pred.next = node;
-        }
-        //前驱节点状态为Condition、propagate
-        else {
-            compareAndSetWaitStatus(pred, ws, Node.SIGNAL);
-        }
-        return false;
-    }
-```
-
-```java
-//挂起当前线程并检查是否中断
-private final boolean parkAndCheckInterrupt() {
-        LockSupport.park(this);
-        return Thread.interrupted();
-    }
-```
-
-`countDown()`通过`tryReleaseShared(int)`操作state使用CAS原子减1。等待所有子线程执行完成(state=0)，通过`unpark()`唤醒挂起在`park()`中的线程状态，继续剩余操作。
-```java
-    public final boolean releaseShared(int arg) {
-        if (tryReleaseShared(arg)) {
-            doReleaseShared();
-            return true;
-        }
-        return false;
-    }
-```
-```java
-    protected boolean tryReleaseShared(int releases) {
-        for (;;) {
-            // 获取当前state值
-            int c = getState();
-            if (c == 0)
-                return false;
-            int nextc = c-1;
-            // CAS原子减1
-            if (compareAndSetState(c, nextc))
-                return nextc == 0;
-        }
-    }
-```
-```java
-    private void doReleaseShared() {
-        for (;;) {
-            Node h = head;
-            if (h != null && h != tail) {
-                int ws = h.waitStatus;
-                if (ws == Node.SIGNAL) {
-                    if (!compareAndSetWaitStatus(h, Node.SIGNAL, 0))
-                        continue;            // loop to recheck cases
-                    unparkSuccessor(h);
-                }
-                else if (ws == 0 &&
-                         !compareAndSetWaitStatus(h, 0, Node.PROPAGATE))
-                    continue;                // loop on failed CAS
-            }
-            if (h == head)                   // loop if head changed
-                break;
-        }
-    }
-```
-```java
-    private void unparkSuccessor(Node node) {
-        // 当前节点状态
-        int ws = node.waitStatus;
-        if (ws < 0)
-            compareAndSetWaitStatus(node, ws, 0);
-        Node s = node.next;
-        // 没有后继节点或者超时、被中断
-        if (s == null || s.waitStatus > 0) {
-            s = null;
-            // 从tail尾节点开始查找可用节点
-            for (Node t = tail; t != null && t != node; t = t.prev)
-                if (t.waitStatus <= 0)
-                    s = t;
-        }
-        // 唤醒后继节点
-        if (s != null)
-            LockSupport.unpark(s.thread);
-    }
-```
->节点可能存在没有后继节点或者取消（超时、中断）的情况，则需要跳过此节点。
->继续寻找node.next可用节点时，仍然可能存在null或者取消的情况，所以采用tail回溯方法寻找第一个可用线程，并唤醒该线程
