@@ -16,7 +16,9 @@
     - [JVM内存模型](docs/zh-cn/java/jvm/jvm-memory-model.md)
   - **并发**
     - [AQS](docs/zh-cn/java/concurrency/abstract-queued-synchronizer.md)
-  - **Spring Cloud 大合集**
+  - **Spring Boot系列**
+    - [Spring Boot Test Mock测试](docs/zh-cn/java/spring-boot/spring-boot-test-mock.md) 
+  - **Spring Cloud系列**
     - [Spring Cloud Config 入门](docs/zh-cn/java/spring-cloud/spring-cloud-config.md)
     - [Spring Cloud Eureka 扩展Nginx路由](docs/zh-cn/java/spring-cloud/spring-cloud-eureka-nginx-router.md)
     - [Spring Cloud Gateway 入门](docs/zh-cn/java/spring-cloud/spring-cloud-gateway.md)
