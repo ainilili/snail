@@ -5,7 +5,7 @@ netty是一款优秀的网络编程框架，将复杂的网络编程封装成优
 
 更复杂一点的网络编程又会分为NIO（New I/O）、BIO（Block I/O)和AIO（Asynchronous I/O），netty的优势在于NIO领域，很多知名的开源目前的最新版本都会嵌入netty作为网络内核，这就间接的说明了我们确实非常有必要去学习一下netty！
 
-## 使用netty开发一个服务端
+## netty服务端
 下文中使用的netty的版本为``4.1.29``，使用maven可以轻松依赖：
 ```xml
 <dependency>
@@ -27,7 +27,7 @@ public class SimpleServer {
 			.group(parentGroup, childGroup)
 			.channel(NioServerSocketChannel.class) //指定启动一个NIO类型的服务器
 			.localAddress(new InetSocketAddress(8080)) //指定端口
-			.childHandler(new DefaultChannelInitializer()); //指定一个ChannelHandler类型的处理器，在服务初始化之后调用处理器中的方法
+			.childHandler(new SimpleServerChannelInitializer()); //指定一个ChannelHandler类型的处理器，在服务初始化之后调用处理器中的方法
 
 			ChannelFuture f = bootstrap.bind().sync();
 
@@ -40,7 +40,7 @@ public class SimpleServer {
 	}
 }
 ```
-## 使用netty开发一个客户端
+## netty客户端
 netty的客户端和服务端构建代码并没有太大的差异：
 ```java
 public class SimpleClient {
@@ -51,7 +51,7 @@ public class SimpleClient {
 			Bootstrap bootstrap = new Bootstrap()
 					.group(group)
 					.channel(NioSocketChannel.class)
-					.handler(new DefaultChannelInitializer());
+					.handler(new SimpleClientChannelInitializer());
       //这一步指定连接服务端的地址和端口并连接
 			Channel channel = bootstrap.connect("127.0.0.1", 8080).sync().channel();
 			channel.closeFuture().sync();
