@@ -25,6 +25,8 @@
     - [Spring Cloud Gateway 入门](docs/zh-cn/java/spring-cloud/spring-cloud-gateway.md)
   - **Netty系列**
     - [Netty系列一：使用Netty搭建服务端和客户端](docs/zh-cn/java/netty/netty-series-1.md)
+    - [Netty系列二：Channel和它的朋友们](docs/zh-cn/java/netty/netty-series-2.md)
+    - [Netty系列三：一个Echo的小Demo](docs/zh-cn/java/netty/netty-series-3.md)
   - **兴趣爱好**
     - [使用对象锁实现CountDownLatch](docs/zh-cn/java/interesting/count-down-latch.md)
 - **Mysql相关**
