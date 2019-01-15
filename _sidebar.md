@@ -24,7 +24,7 @@
     - [Spring Cloud Eureka 扩展Nginx路由](docs/zh-cn/java/spring-cloud/spring-cloud-eureka-nginx-router.md)
     - [Spring Cloud Gateway 入门](docs/zh-cn/java/spring-cloud/spring-cloud-gateway.md)
   - **Netty系列**
-    - [Netty系列一：使用Netty搭建服务端和客户端](docs/zh-cn/java/netty/nginx-series-1.md)
+    - [Netty系列一：使用Netty搭建服务端和客户端](docs/zh-cn/java/netty/netty-series-1.md)
   - **兴趣爱好**
     - [使用对象锁实现CountDownLatch](docs/zh-cn/java/interesting/count-down-latch.md)
 - **Mysql相关**
