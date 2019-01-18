@@ -13,6 +13,8 @@
     - [桥接模式](docs/zh-cn/java/design-mode/bridge-mode.md)
     - [建造者模式](docs/zh-cn/java/design-mode/builder-mode.md)
     - [过滤器模式](docs/zh-cn/java/design-mode/filter-mode.md)
+    - [责任链模式](docs/zh-cn/java/design-mode/chian-mode.md)
+    - [外观模式](docs/zh-cn/java/design-mode/facade-mode.md)
   - **JVM**
     - [JVM内存模型](docs/zh-cn/java/jvm/jvm-memory-model.md)
   - **并发**
