@@ -3,3 +3,9 @@
  - [GITHUB](https://github.com)
  - [V2EX](https://www.v2ex.com/)
  - [论文和代码](https://paperswithcode.com/)
+ - [Kafka文档](http://kafka.apache.org/intro)
+ - [Spring-Boot文档](https://docs.spring.io/spring-boot/docs/2.1.1.RELEASE/reference/htmlsingle/)
+
+## 工具站
+ - [Emoji大全](https://emojipedia.org/)
+ - [JWT在线测试](https://jwt.io/)
