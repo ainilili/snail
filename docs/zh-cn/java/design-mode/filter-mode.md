@@ -72,3 +72,5 @@ Before filter:[1, -1, 5, 3, 4, 7, -9, 100, 27]
 After negative filter:[1, 5, 3, 4, 7, 100, 27]
 After even filter:[1, 5, 3, 7, 27]
 ```
+## 总结
+这种模式让数据处理更加优雅，配合责任链模式更佳！
