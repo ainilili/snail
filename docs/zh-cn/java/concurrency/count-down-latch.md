@@ -1,10 +1,10 @@
-#### CountDownLatch 计数器
+## CountDownLatch 计数器
 
-##### 能做什么？
+### 能做什么？
 
 >能够允许一个或多个线程阻塞等待，直到所有的线程执行完毕后再继续执行剩余操作。
 
-##### 如何使用？
+### 如何使用？
 
 ```java
         int count = 10;
@@ -24,13 +24,47 @@
         // do something
 ```
 
-##### 如何实现？
+### 如何实现？
 
-![CountDownLatch继承AQS](https://user-gold-cdn.xitu.io/2018/12/27/167ef96070c28d7b)
+```java
+public class CountDownLatch {
+    private static final class Sync extends AbstractQueuedSynchronizer {
+
+        Sync(int count) {
+            setState(count);
+        }
+
+        int getCount() {
+            return getState();
+        }
+
+        protected int tryAcquireShared(int acquires) {
+            return (getState() == 0) ? 1 : -1;
+        }
+
+        protected boolean tryReleaseShared(int releases) {
+            for (;;) {
+                int c = getState();
+                if (c == 0)
+                    return false;
+                int nextc = c-1;
+                if (compareAndSetState(c, nextc))
+                    return nextc == 0;
+            }
+        }
+    }
+    private final Sync sync;
+}
+```
 
 >CountDownLatch只需要实现少量代码即可实现相应的功能。
 
-![CountDownLatch构造函数](https://user-gold-cdn.xitu.io/2018/12/27/167efb28587a671c?w=605&h=79&f=png&s=9275)
+```java
+    public CountDownLatch(int count) {
+        if (count < 0) throw new IllegalArgumentException("count < 0");
+        this.sync = new Sync(count);
+    }
+```
 
 实例化对象同时将继承了AQS的内部类Sync初始化state为count。Sync由于可共享，只需要重写`tryAcquireShared(int)`与`tryReleaseShared(int)`方法。
 
