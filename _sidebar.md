@@ -35,6 +35,7 @@
 - **Mysql相关**
   - **优化**
     - [优化常识](docs/zh-cn/mysql/optimize/optimize-common-sense.md)
+    - [数据库优化实战](docs/zh-cn/mysql/actual_combat/actual_combat.md)
 - **Linux相关**
   - **基础入门**
     - [常用指令合集](docs/zh-cn/linux/introduction/instruction-set.md)
