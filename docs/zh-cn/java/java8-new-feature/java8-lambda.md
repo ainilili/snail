@@ -83,3 +83,7 @@ System.out.println(predicate.test(b));  //false
 ```
 ## 总结
 在Stream中，lambda的应用非常广泛，我们如果想讲lambda更熟练的掌握，需要自己亲自的去使用lambda，在实战中去真正体会lambda的强大之处。
+## 参考文章
+ - [深入理解Java函数式编程]https://www.ibm.com/developerworks/cn/java/j-understanding-functional-programming-1/index.html?ca=drs-
+ - [Java 8 中的 Streams API 详解]https://www.ibm.com/developerworks/cn/java/j-lo-java8streamapi/
+ - [百度百科——Lambda表达式](https://baike.baidu.com/item/Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F)
