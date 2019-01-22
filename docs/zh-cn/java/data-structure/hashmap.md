@@ -425,7 +425,7 @@ table-3: null
 
 newTable[]
 table-1: null
-table-2: c -> b -> a
+table-2: c -> b -> a -> null
 table-3: null
 table-4: null
 table-5: null
