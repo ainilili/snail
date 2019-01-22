@@ -16,7 +16,7 @@
     - [责任链模式](docs/zh-cn/java/design-mode/chain-mode.md)
     - [外观模式](docs/zh-cn/java/design-mode/facade-mode.md)
   - **Java8新特性**
-    - [Java8-Lambda语法](docs\zh-cn\java\java8-new-feature\java8-lambda.md)
+    - [Java8-Lambda语法](docs/zh-cn/java/java8-new-feature/java8-lambda.md)
   - **JVM**
     - [JVM内存模型](docs/zh-cn/java/jvm/jvm-memory-model.md)
   - **并发**
@@ -54,4 +54,4 @@
     - [mybatis-ourbatis](docs/zh-cn/opensource/opensource-write/ourbatis.md)
     - [spring-boot权限管理框架defender](docs/zh-cn/opensource/opensource-write/defender.md)
 - **杂七杂八**
-  - [网址收藏](docs\zh-cn\littery\website-collect.md)
+  - [网址收藏](docs/zh-cn/littery/website-collect.md)
