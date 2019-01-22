@@ -13,7 +13,7 @@
     - [桥接模式](docs/zh-cn/java/design-mode/bridge-mode.md)
     - [建造者模式](docs/zh-cn/java/design-mode/builder-mode.md)
     - [过滤器模式](docs/zh-cn/java/design-mode/filter-mode.md)
-    - [责任链模式](docs/zh-cn/java/design-mode/chian-mode.md)
+    - [责任链模式](docs/zh-cn/java/design-mode/chain-mode.md)
     - [外观模式](docs/zh-cn/java/design-mode/facade-mode.md)
   - **Java8新特性**
     - [Java8-Lambda语法](docs\zh-cn\java\java8-new-feature\java8-lambda.md)
