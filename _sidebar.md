@@ -15,6 +15,11 @@
     - [过滤器模式](docs/zh-cn/java/design-mode/filter-mode.md)
     - [责任链模式](docs/zh-cn/java/design-mode/chain-mode.md)
     - [外观模式](docs/zh-cn/java/design-mode/facade-mode.md)
+    - [组合模式](docs/zh-cn/java/design-mode/composite-mode.md)
+    - [装饰者模式](docs/zh-cn/java/design-mode/decorator-mode.md)
+    - [享元模式](docs/zh-cn/java/design-mode/flyweight-mode.md)
+    - [观察者模式](docs/zh-cn/java/design-mode/observer-mode.md)
+    - [策略模式](docs/zh-cn/java/design-mode/strategy-mode.md)
   - **Java8新特性**
     - [Java8-Lambda语法](docs/zh-cn/java/java8-new-feature/java8-lambda.md)
   - **JVM**
