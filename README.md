@@ -40,6 +40,8 @@
   - **并发**
     - [AQS](docs/zh-cn/java/concurrency/abstract-queued-synchronizer.md)
     - [CountDownLatch](docs/zh-cn/java/concurrency/count-down-latch.md)
+    - [ReentrantLock](docs/zh-cn/java/concurrency/reentrant-lock.md)
+    - [semaphore](docs/zh-cn/java/concurrency/semaphore.md)
   - **Spring Boot系列**
     - [Spring Boot Test Mock测试](docs/zh-cn/java/spring-boot/spring-boot-test-mock.md)
   - **Spring Cloud系列**
