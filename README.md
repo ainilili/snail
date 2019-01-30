@@ -33,13 +33,16 @@
     - [桥接模式](docs/zh-cn/java/design-mode/bridge-mode.md)
     - [建造者模式](docs/zh-cn/java/design-mode/builder-mode.md)
     - [过滤器模式](docs/zh-cn/java/design-mode/filter-mode.md)
-    - [责任链模式](docs/zh-cn/java/design-mode/chian-mode.md)
+    - [责任链模式](docs/zh-cn/java/design-mode/chain-mode.md)
     - [外观模式](docs/zh-cn/java/design-mode/facade-mode.md)
   - **JVM**
     - [JVM内存模型](docs/zh-cn/java/jvm/jvm-memory-model.md)
   - **并发**
     - [AQS](docs/zh-cn/java/concurrency/abstract-queued-synchronizer.md)
     - [CountDownLatch](docs/zh-cn/java/concurrency/count-down-latch.md)
+    - [ReentrantLock](docs/zh-cn/java/concurrency/reentrant-lock.md)
+    - [semaphore](docs/zh-cn/java/concurrency/semaphore.md)
+    - [ReentrantReadWriteLock](docs/zh-cn/java/concurrency/reentrant-read-write-lock.md)
   - **Spring Boot系列**
     - [Spring Boot Test Mock测试](docs/zh-cn/java/spring-boot/spring-boot-test-mock.md)
   - **Spring Cloud系列**
