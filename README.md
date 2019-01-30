@@ -74,7 +74,7 @@
     - [mybatis-ourbatis](docs/zh-cn/opensource/opensource-write/ourbatis.md)
     - [spring-boot权限管理框架defender](docs/zh-cn/opensource/opensource-write/defender.md)
 - **杂七杂八**
-  - [网址收藏](docs\zh-cn\littery\website-collect.md)
+  - [网址收藏](docs/zh-cn/littery/website-collect.md)
 
 ## 加入
  - [加入我们](https://github.com/ainilili/snail/blob/master/CONTRIBUTING.md)
