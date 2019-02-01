@@ -13,7 +13,6 @@
 5. 支持公平和非公平锁方式
 6. 锁降级。先获取写锁，再获取读锁，最后释放写锁，可以将写锁降级为读锁
 
-
 ## ReentrantReadWriteLock
 ```java
 // ReentrantReadWriteLock
@@ -72,6 +71,7 @@ public boolean tryLock(long timeout, TimeUnit unit)
 > 虽然拥有两把锁，但是其锁的主体还是`Sync`来实现的。所以实际上*只有一把锁*，只是在获取锁和写入锁的方式上不一样。
 `ReentrantReadWriteLock`依然使用 AQS 中 *int* 类型的 *state* 来表示同步状态，表示锁被重复获取的次数。
 由于内部维护一对读写锁，要使用一个变量维护多种状态，其采用了`按位切割`的方式维护这个变量，高 16 位表示读，低 16 位表示写
+
 ```java
 // Sync.java
 
