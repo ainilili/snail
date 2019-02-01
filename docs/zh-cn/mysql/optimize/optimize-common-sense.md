@@ -183,14 +183,15 @@ using where 意味着通过索引或者表扫描的方式进程where条件的过
 
    ### 有关TEXT 类型
 
-      只有当必要时才使用 text
-       - BLOB 过长，varchar 放不下时
-       - 要做 FULLTEXT 索引时
+   - 只有当必要时才使用 text
+    - BLOB 过长，varchar 放不下时
+    - 要做 FULLTEXT 索引时
 
-      使用TEXT 和innoDB 时
-        - 设定 innodb_file_format=barracuda
-        - 设定 ROW_FORMAT=Dynamic
-      这样 text, blob 或varchar, varbinary 并长於20bytes 会分开block 存放，在确保row 的固定长度。
+   - 使用TEXT 和innoDB 时
+     - 设定 innodb_file_format=barracuda
+     - 设定 ROW_FORMAT=Dynamic
+   
+   这样 text, blob 或varchar, varbinary 并长於20bytes 会分开block 存放，在确保row 的固定长度。
 
    ### 反范式化设计
 
