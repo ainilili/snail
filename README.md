@@ -36,6 +36,7 @@
     - [责任链模式](docs/zh-cn/java/design-mode/chain-mode.md)
     - [外观模式](docs/zh-cn/java/design-mode/facade-mode.md)
     - [命令模式](docs/zh-cn/java/design-mode/command-mode.md)
+    - [模板方法模式](docs/zh-cn/java/design-mode/template-mode.md)
   - **JVM**
     - [JVM内存模型](docs/zh-cn/java/jvm/jvm-memory-model.md)
   - **并发**
