@@ -13,7 +13,7 @@
  - ``service nginx restart`` 重启nginx服务
  - ``service nginx stop`` 停止nginx服务
  - ``tar -zxf xxx.tar.gz`` 解压tar.gz文件
-
+ - ``eval $(cat a.txt|awk '{printf("curl https://www.%s.com",$1)}')`` awk向shell传递参数
 ## 安装组件
  - ``yum list`` 查看yum安装包列表
  - ``yum install nginx`` 安装nginx
