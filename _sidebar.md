@@ -59,5 +59,7 @@
   - **开源编写**
     - [mybatis-ourbatis](docs/zh-cn/opensource/opensource-write/ourbatis.md)
     - [spring-boot权限管理框架defender](docs/zh-cn/opensource/opensource-write/defender.md)
+- **随笔**
+  - [记Javacv在linux环境下使用抛出NoClassDefFoundError异常的解决过程](docs/zh-cn/informal-essay/javacv-linux-deploy.md)
 - **杂七杂八**
   - [网址收藏](docs/zh-cn/littery/website-collect.md)
