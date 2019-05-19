@@ -10,5 +10,7 @@
  - [Emoji大全](https://emojipedia.org/)
  - [JWT在线测试](https://jwt.io/)
  - [在线时序图](https://www.websequencediagrams.com/)
+ - [Openjdk下载](http://hg.openjdk.java.net/jdk8u)
 ## 大神博客
  - [ElseF's Blog](https://elsef.com)
+ - [WorkHoliday](https://hunterzhao.io/)
