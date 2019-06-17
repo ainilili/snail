@@ -54,6 +54,8 @@
     - [Arthas安装](docs/zh-cn/linux/deployment-environment/arthas.md)
     - [Nginx安装及入门](docs/zh-cn/linux/deployment-environment/nginx.md)
     - [Mysql安装](docs/zh-cn/linux/deployment-environment/mysql.md)
+    - [git v2.2.1安装](docs/zh-cn/linux/deployment-environment/git.md)
+    - [gitea安装](docs/zh-cn/linux/deployment-environment/gitea.md)
 - **开源项目**
   - **开源阅读**
     - [arthas源码简析](docs/zh-cn/opensource/opensource-read/arthas.md)
