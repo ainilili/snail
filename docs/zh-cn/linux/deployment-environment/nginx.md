@@ -577,3 +577,29 @@ location /test{
 ```
 
 如果这个root配置不注释的话将会覆盖server块下的root路径哦，到这里nginx基本配置应该就写完了，大家可以去亲自试一试~
+
+### 解决Nginx的13: Permission denied) while connecting to upstream
+在使用nginx进行负载均衡的时候，出现了这么一个问题：
+```
+1 connect() to 10.51.2.237:8084 failed (13: Permission denied) while connecting to upstream, client: 10.51.2.237, server:
+```
+已确认本地防火墙已关闭，后经过一番查询之后，是因为SeLinux。
+
+ SeLinux是2.6版本的Linux系统内核中提供的强制访问控制（MAC）系统。算是内置的安全系统，防火墙什么的应该算是外配的。
+
+So：解决方法有两种
+#### 1.关闭SeLinux
+临时关闭（不用重启机器）：
+setenforce 0                  ##设置SELinux 成为permissive模式
+
+setenforce 1 设置SELinux 成为enforcing模式
+
+修改配置文件需要重启机器：
+修改/etc/selinux/config 文件
+
+将SELINUX=enforcing改为SELINUX=disabled
+
+重启机器即可
+
+#### 2.执行下面的命令
+setsebool -P httpd_can_network_connect 1
